@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hopu.mapper.ContractProMapper">
+
+    <resultMap autoMapping="true" type="com.hopu.entity.ContractPro" id="ExportProFactory">
+        <id column="contractProductId" property="contractProductId"/>
+        <collection autoMapping="true" property="factory_c" ofType="com.hopu.entity.Factory_c">
+            <id column="factory_id" property="factory_id"/>
+        </collection>
+    </resultMap>
+    
+    
+    <select id="selectConProAll" resultMap="ExportProFactory">
+        select * from CONTRACT_PRODUCT_C,FACTORY_C where CONTRACT_PRODUCT_C.FACTORY_ID = FACTORY_C.FACTORY_ID
+    </select>
+
+    <insert id="insertConPro" parameterType="com.hopu.entity.ContractPro">
+        insert into CONTRACT_PRODUCT_C(CONTRACT_PRODUCT_ID,FACTORY_ID,PRODUCT_NO,PRODUCT_IMAGE,CNUMBER,PACKING_UNIT,LOADING_RATE,BOX_NUM,PRICE,ORDER_NO,PRODUCT_DESC) values (#{contract_Product_Id},#{factory_Id},#{product_No},#{product_Image},#{cnumber},#{packing_Unit},#{loading_Rate},#{box_Num},#{price},#{order_No},#{product_Desc})
+    </insert>
+
+    <delete id="deleteConPro" parameterType="com.hopu.entity.ContractPro">
+        delete from CONTRACT_PRODUCT_C where CONTRACT_PRODUCT_ID = #{contract_Product_Id}
+    </delete>
+
+    <select id="selectConProByid" resultType="com.hopu.entity.ContractPro">
+        select * from CONTRACT_PRODUCT_C,FACTORY_C where CONTRACT_PRODUCT_C.FACTORY_ID = FACTORY_C.FACTORY_ID and CONTRACT_PRODUCT_ID = #{contract_Product_Id}
+    </select>
+
+    <update id="updateConPro" parameterType="com.hopu.entity.ContractPro">
+        update CONTRACT_PRODUCT_C set FACTORY_ID = #{factory_Id},PRODUCT_NO = #{product_No},PRODUCT_IMAGE = #{product_Image},CNUMBER = #{cnumber},PACKING_UNIT = #{packing_Unit},LOADING_RATE = #{loading_Rate},BOX_NUM = #{box_Num},PRICE = #{price},ORDER_NO = #{order_No},PRODUCT_DESC = #{product_Desc} where CONTRACT_PRODUCT_ID = #{contract_Product_Id}
+    </update>
+
+</mapper>

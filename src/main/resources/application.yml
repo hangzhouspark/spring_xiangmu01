@@ -1,0 +1,15 @@
+server:
+  port: 8001
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+    username: yqx
+    password: 123456789
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  mvc:
+    static-path-pattern: /**
+    view:
+      prefix: /WEB-INF/pages/
+      suffix: .jsp
+mybatis:
+  mapper-locations: classpath:mapper/*xml

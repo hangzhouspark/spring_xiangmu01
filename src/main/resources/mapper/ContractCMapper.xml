@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hopu.mapper.ContractCMapper">
+
+    <select id="selectContract" resultType="com.hopu.entity.ContractC">
+        select * from CONTRACT_C
+    </select>
+
+    <insert id="insertContract" parameterType="com.hopu.entity.ContractC">
+        INSERT INTO CONTRACT_C(contract_Id,offeror,contract_No,signing_Date,input_By,check_By,inspector,total_Amount,request,custom_Name,ship_Time,import_Num,delivery_Period,remark,print_Style,state)values(#{contract_Id},#{offeror},#{contract_No},#{signing_Date},#{input_By},#{check_By},#{inspector},#{total_Amount},#{request},#{custom_Name},#{ship_Time},#{import_Num},#{delivery_Period},#{remark},#{print_Style},#{state})
+    </insert>
+
+    <select id="selectByid" resultType="com.hopu.entity.ContractC">
+        select * from CONTRACT_C where contract_Id = #{contract_Id}
+    </select>
+
+    <update id="updateCon" parameterType="com.hopu.entity.ContractC">
+        update CONTRACT_C set offeror = #{offeror},contract_No = #{contract_No},signing_Date = #{signing_Date},input_By = #{input_By},check_By = #{check_By},inspector = #{inspector},total_Amount = #{total_Amount},request = #{request},custom_Name = #{custom_Name},ship_Time = #{ship_Time},import_Num = #{import_Num},delivery_Period = #{delivery_Period},remark = #{remark},print_Style = #{print_Style} where contract_Id = #{contract_Id}
+    </update>
+
+    <delete id="deleteCon" parameterType="com.hopu.entity.ContractC">
+        delete from CONTRACT_C where contract_Id = #{contract_Id}
+    </delete>
+    
+    <update id="updatestate" parameterType="com.hopu.entity.ContractC">
+        update CONTRACT_C set state = #{state} where contract_Id = #{contract_Id}
+    </update>
+
+</mapper>
