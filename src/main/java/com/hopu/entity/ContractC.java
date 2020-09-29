@@ -1,7 +1,5 @@
 package com.hopu.entity;
 
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -61,4 +59,8 @@ public class ContractC {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date create_Time;
+
+    private String cpnum;
+
+    private String extnum;
 }

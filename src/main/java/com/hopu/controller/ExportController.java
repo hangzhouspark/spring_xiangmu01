@@ -43,7 +43,6 @@ public class ExportController {
 
     @RequestMapping("/delExp.action")
     public String delExp(String EXPORTPRODUCTID) {
-        System.out.println(EXPORTPRODUCTID);
         int i = exportService.delExp(EXPORTPRODUCTID);
         if (i > 0) {
             return "redirect:findExpAll.action";

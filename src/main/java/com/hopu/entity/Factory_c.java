@@ -6,6 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+/**
+ * (SysCodeB)实体类
+ *
+ * @author makejava
+ * @since 2020-09-25 09:15:19
+ */
 @Data
 public class Factory_c {
 

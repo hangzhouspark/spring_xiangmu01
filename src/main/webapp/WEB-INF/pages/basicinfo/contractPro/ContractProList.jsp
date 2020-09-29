@@ -16,7 +16,7 @@
                 <div id="navMenubar">
                     <ul>
                         <li id="save"><a onclick="document:insertForm.submit()">确定</a></li>
-                        <li id="back"><a href="#">返回</a></li>
+                        <li id="back"><a href="/selectContract.action">返回</a></li>
                     </ul>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                         <td>
                             <a href="/findConProAllByid.action?contract_Product_Id=${o.contract_Product_Id}">{修改}</a>
                             <a href="/DelConPro.action?contract_Product_Id=${o.contract_Product_Id}">{删除}</a>
-                            <a href="#">{附件}</a>
+                            <a href="/selectExt.action?contract_Product_Id=${o.contract_Product_Id}">{附件}</a>
                         </td>
                     </tr>
                 </c:forEach>

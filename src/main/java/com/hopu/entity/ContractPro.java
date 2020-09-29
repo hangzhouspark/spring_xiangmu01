@@ -1,14 +1,21 @@
 package com.hopu.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 import lombok.Data;
 
+/**
+ * (SysCodeB)实体类
+ *
+ * @author makejava
+ * @since 2020-09-25 09:15:19
+ */
 @Data
 public class ContractPro {
 
     private String contract_Product_Id;
+
+    private ContractC contractC;
 
     private String contract_Id;
 
@@ -71,5 +78,7 @@ public class ContractPro {
     private byte[] accessories;
 
     private BigDecimal order_No;
+
+    private Integer conuntConPro;
 
 }

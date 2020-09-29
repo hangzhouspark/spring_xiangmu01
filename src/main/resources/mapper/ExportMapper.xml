@@ -4,7 +4,7 @@
 <mapper namespace="com.hopu.mapper.ExportMapper">
 
     <resultMap autoMapping="true" type="com.hopu.entity.Export" id="ExportFactory">
-        <id column="exportProdctId" property="exportProdctId"/>
+        <id column="EXPORTPRODUCTID" property="EXPORTPRODUCTID"/>
         <collection autoMapping="true" property="factory_c" ofType="com.hopu.entity.Factory_c">
             <id column="factory_id" property="factory_id"/>
         </collection>

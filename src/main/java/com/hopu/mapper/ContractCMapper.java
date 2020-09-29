@@ -4,6 +4,7 @@ import com.hopu.entity.ContractC;
 
 import java.util.List;
 
+
 public interface ContractCMapper {
 
     public List<ContractC> selectContract();
@@ -17,4 +18,5 @@ public interface ContractCMapper {
     public int deleteCon(String contract_Id);
 
     public int updatestate(ContractC entity);
+
 }

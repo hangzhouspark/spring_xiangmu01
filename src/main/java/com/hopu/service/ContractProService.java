@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ContractProService {
 
-    public List<ContractPro> selectConProAll();
+    public List<ContractPro> selectConProAll(String contract_Id);
 
     public int insertConPro(ContractPro entity);
 
@@ -15,6 +15,11 @@ public interface ContractProService {
     public ContractPro selectConProByid(String contract_Product_Id);
 
     public int updateConPro(ContractPro entity);
+
+    public List<ContractPro> selectAllConPro();
+
+    public ContractPro selectCount(String contract_Id);
+
 
 
 

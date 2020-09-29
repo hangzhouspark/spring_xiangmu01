@@ -16,8 +16,8 @@ public class ContractProServiceImpl implements ContractProService {
 
 
     @Override
-    public List<ContractPro> selectConProAll() {
-        return contractProMapper.selectConProAll();
+    public List<ContractPro> selectConProAll(String contract_Id) {
+        return contractProMapper.selectConProAll(contract_Id);
     }
 
     @Override
@@ -38,5 +38,15 @@ public class ContractProServiceImpl implements ContractProService {
     @Override
     public int updateConPro(ContractPro entity) {
         return contractProMapper.updateConPro(entity);
+    }
+
+    @Override
+    public List<ContractPro> selectAllConPro() {
+        return contractProMapper.selectAllConPro();
+    }
+
+    @Override
+    public ContractPro selectCount(String contract_Id) {
+        return contractProMapper.selectCount(contract_Id);
     }
 }

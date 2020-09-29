@@ -4,7 +4,24 @@
 <mapper namespace="com.hopu.mapper.ContractCMapper">
 
     <select id="selectContract" resultType="com.hopu.entity.ContractC">
-        select * from CONTRACT_C
+        select
+  (select count(*) from contract_product_c
+  where contract_id=c.contract_id)  as cpnum,
+  (select count(*) from ext_cproduct_c
+          where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)
+      ) as extnum,
+  (
+      nvl((select sum(cnumber*price) as cptotal from contract_product_c
+      where contract_id =c.contract_id),0)
+      +
+      nvl(
+      (select sum(cnumber*price) as exttotal from ext_cproduct_c
+       where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id))
+       ,0)
+  ) as total_amount,
+c.CONTRACT_ID,c.OFFEROR,c.CONTRACT_NO,c.SIGNING_DATE,c.INPUT_BY,c.CHECK_BY,c.INSPECTOR,c.IMPORT_NUM,c.REQUEST,c.CUSTOM_NAME,c.DELIVERY_PERIOD,c.SHIP_TIME,c.REMARK,c.PRINT_STYLE,c.OLD_STATE,c.STATE,c.OUT_STATE
+
+from contract_c c
     </select>
 
     <insert id="insertContract" parameterType="com.hopu.entity.ContractC">

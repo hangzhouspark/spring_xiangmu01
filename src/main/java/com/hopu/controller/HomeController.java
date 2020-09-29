@@ -1,22 +1,26 @@
 package com.hopu.controller;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Controller
 public class HomeController {
 
 
-    //系统首页模块
+    /***
+     * 系统首页模块
+     * @return
+     */
     @RequestMapping("/home.action")
     public String login() {
 
         return "login";
     }
 
-    //登录到后台
+    /***
+     * 登录到后台
+     * @return
+     */
     @RequestMapping(value = "/fmain.action")
     public String fmain() {
         return "/home/fmain";
@@ -32,13 +36,19 @@ public class HomeController {
         return "/home/left";
     }
 
+    /***
+     * 首页转向留言板
+     * @return
+     */
     @RequestMapping(value = "/main.action")
     public String main() {
-        return "/home/olmsgList"; // 首页转向留言板
+        return "/home/olmsgList";
     }
 
-    // 系统管理模块
-
+    /***
+     * 系统管理模块
+     * @return
+     */
     @RequestMapping("/sysadminMain.action")
     public String sysadminMain() {
         return "/sysadmin/main";
@@ -49,8 +59,10 @@ public class HomeController {
         return "/sysadmin/left";
     }
 
-    // 基础信息模块
-
+    /***
+     * 基础信息模块
+     * @return
+     */
     @RequestMapping("/baseinfoMain.action")
     public String baseinfoMain() {
         return "/baseinfo/main";
@@ -61,8 +73,10 @@ public class HomeController {
         return "/baseinfo/left";
     }
 
-    // 货运管理模块
-
+    /***
+     * 货运管理模块
+     * @return
+     */
     @RequestMapping("/cargoMain.action")
     public String cargoMain() {
         return "/cargo/main";

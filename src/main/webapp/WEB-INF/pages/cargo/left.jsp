@@ -24,7 +24,6 @@
         <div class="panel-content">
 			<ul>
 				<li><a href="/selectContract.action" onclick="linkHighlighted(this)" target="main" id="aa_1">购销合同</a></li>
-				<li><a href="/findConProAll.action" onclick="linkHighlighted(this)" target="main" id="aa_1">出货表</a></li>
 			</ul>
         </div>
         </div>

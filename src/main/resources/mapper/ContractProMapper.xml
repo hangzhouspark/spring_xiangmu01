@@ -4,19 +4,22 @@
 <mapper namespace="com.hopu.mapper.ContractProMapper">
 
     <resultMap autoMapping="true" type="com.hopu.entity.ContractPro" id="ExportProFactory">
-        <id column="contractProductId" property="contractProductId"/>
+        <id column="contract_Product_Id" property="contract_Product_Id"/>
         <collection autoMapping="true" property="factory_c" ofType="com.hopu.entity.Factory_c">
             <id column="factory_id" property="factory_id"/>
+        </collection>
+        <collection autoMapping="true" property="contractC" ofType="com.hopu.entity.ContractC">
+            <id column="contract_Id" property="contract_Id"/>
         </collection>
     </resultMap>
     
     
     <select id="selectConProAll" resultMap="ExportProFactory">
-        select * from CONTRACT_PRODUCT_C,FACTORY_C where CONTRACT_PRODUCT_C.FACTORY_ID = FACTORY_C.FACTORY_ID
+        select * from CONTRACT_PRODUCT_C,Factory_c,CONTRACT_C where CONTRACT_PRODUCT_C.factory_id = Factory_c.factory_id and CONTRACT_C.contract_Id = CONTRACT_PRODUCT_C.contract_Id and CONTRACT_C.CONTRACT_ID =  #{contract_Id} and Factory_c.state = '1'
     </select>
 
     <insert id="insertConPro" parameterType="com.hopu.entity.ContractPro">
-        insert into CONTRACT_PRODUCT_C(CONTRACT_PRODUCT_ID,FACTORY_ID,PRODUCT_NO,PRODUCT_IMAGE,CNUMBER,PACKING_UNIT,LOADING_RATE,BOX_NUM,PRICE,ORDER_NO,PRODUCT_DESC) values (#{contract_Product_Id},#{factory_Id},#{product_No},#{product_Image},#{cnumber},#{packing_Unit},#{loading_Rate},#{box_Num},#{price},#{order_No},#{product_Desc})
+        insert into CONTRACT_PRODUCT_C(CONTRACT_PRODUCT_ID,CONTRACT_ID,FACTORY_ID,PRODUCT_NO,PRODUCT_IMAGE,CNUMBER,PACKING_UNIT,LOADING_RATE,BOX_NUM,PRICE,ORDER_NO,PRODUCT_DESC,AMOUNT) values (#{contract_Product_Id},#{contract_Id},#{factory_Id},#{product_No},#{product_Image},#{cnumber},#{packing_Unit},#{loading_Rate},#{box_Num},#{price},#{order_No},#{product_Desc},#{amount})
     </insert>
 
     <delete id="deleteConPro" parameterType="com.hopu.entity.ContractPro">
@@ -30,5 +33,13 @@
     <update id="updateConPro" parameterType="com.hopu.entity.ContractPro">
         update CONTRACT_PRODUCT_C set FACTORY_ID = #{factory_Id},PRODUCT_NO = #{product_No},PRODUCT_IMAGE = #{product_Image},CNUMBER = #{cnumber},PACKING_UNIT = #{packing_Unit},LOADING_RATE = #{loading_Rate},BOX_NUM = #{box_Num},PRICE = #{price},ORDER_NO = #{order_No},PRODUCT_DESC = #{product_Desc} where CONTRACT_PRODUCT_ID = #{contract_Product_Id}
     </update>
+
+    <select id="selectAllConPro" resultType="com.hopu.entity.ContractPro">
+        select * from CONTRACT_PRODUCT_C
+    </select>
+
+    <select id="selectCount" resultType="com.hopu.entity.ContractPro">
+        select "COUNT"(CONTRACT_PRODUCT_ID) as conuntConPro from CONTRACT_PRODUCT_C,CONTRACT_C where CONTRACT_C.CONTRACT_ID = CONTRACT_PRODUCT_C.CONTRACT_ID and CONTRACT_C.CONTRACT_ID = #{contract_Id}
+    </select>
 
 </mapper>

@@ -20,7 +20,7 @@
 <li id="delete"><a href="#" onclick="formSubmit('deleteCon.action','_self');this.blur();">删除</a></li>
 <li id="delete"><a href="#" onclick="formSubmit('uploadAndremoveContract.action','_self');this.blur();">上报</a></li>
 <li id="new"><a href="#" onclick="formSubmit('uploadAndremoveContractTwo.action','_self');this.blur();">取消</a></li>
-<li id="new"><a href="#" onclick="formSubmit('stop.action','_self');this.blur();">打印</a></li>
+<li id="new"><a href="#" onclick="formSubmit('Printing.action','_self');this.blur();">打印</a></li>
 <li id="new"><a href="#" onclick="formSubmit('stop.action','_self');this.blur();">模板打印</a></li>
 <li id="new"><a href="#" onclick="formSubmit('stop.action','_self');this.blur();">归档</a></li>
 </ul>
@@ -48,6 +48,7 @@
 		<td class="tableHeader">序号</td>
 		<td class="tableHeader">客户名称</td>
 		<td class="tableHeader">合同号</td>
+		<td class="tableHeader">货物个数/附件个数</td>
 		<td class="tableHeader">制单人</td>
 		<td class="tableHeader">审查人</td>
 		<td class="tableHeader">验货员</td>
@@ -66,6 +67,7 @@
 		<td>${status.index+1}</td>
 		<td>${o.custom_Name}</td>
 		<td>${o.contract_No}</td>
+		<td>${o.cpnum}/${o.extnum}</td>
 		<td>${o.input_By}</td>
 		<td>${o.check_By}</td>
 		<td>${o.inspector}</td>
@@ -78,7 +80,7 @@
 			<c:if test="${o.state==1}">草稿</c:if>
             <c:if test="${o.state==2}">带报运</c:if>
 		</td>
-        <td>{货物}</td>
+		<td><a href="/findConProAll.action?contract_Id=${o.contract_Id}">{货物}</a></td>
 	</tr>
 	</c:forEach>
 	</tbody>

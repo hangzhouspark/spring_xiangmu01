@@ -15,7 +15,7 @@
     <div id="navMenubar">
 <ul>
 <li id="save"><a onclick="document:updateForm.submit()">确定</a></li>
-<li id="back"><a href="/findoryAlll.action">返回</a></li>
+<li id="back"><a href="/findConProAll.action?contract_Id=${contractPro.contract_Id}">返回</a></li>
 </ul>
     </div>
 </div>
@@ -38,11 +38,11 @@
 				<td class="columnTitle_mustbe">厂家名称：</td>
 				<td class="tableContent">
 					<select name="factory_Id">
-						<c:forEach items="${factory_cs}" var=f"a">
-							<c:if test="${fa.factory_id eq contractPro.factory_c.factory_id}">
+						<c:forEach items="${factory_cs}" var="fa">
+							<c:if test="${fa.factory_id eq contractPro.factory_Id}">
 								<option value="${fa.factory_id}" selected="selected">${fa.full_name}</option>
 							</c:if>
-							<c:if test="${fa.factory_id != contractPro.factory_c.factory_id}">
+							<c:if test="${fa.factory_id != contractPro.factory_Id}">
 								<option value="${fa.factory_id}">${fa.full_name}</option>
 							</c:if>
 						</c:forEach>
