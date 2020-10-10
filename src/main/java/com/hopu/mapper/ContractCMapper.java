@@ -19,4 +19,5 @@ public interface ContractCMapper {
 
     public int updatestate(ContractC entity);
 
+
 }

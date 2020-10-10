@@ -49,4 +49,9 @@ public class ContractProServiceImpl implements ContractProService {
     public ContractPro selectCount(String contract_Id) {
         return contractProMapper.selectCount(contract_Id);
     }
+
+    @Override
+    public List<ContractPro> poiCh(String inputDate) {
+        return contractProMapper.poiCh(inputDate);
+    }
 }

@@ -35,12 +35,12 @@ public class ContractC {
 
     private String custom_Name;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date ship_Time;
 
     private Integer import_Num;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date delivery_Period;
 
     private String remark;
@@ -57,7 +57,7 @@ public class ContractC {
 
     private String create_Dept;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date create_Time;
 
     private String cpnum;

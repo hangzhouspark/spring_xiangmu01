@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @Controller
 public class Factory_ccontroller {
+
     @Autowired
     Factory_cService factory_cService;
 

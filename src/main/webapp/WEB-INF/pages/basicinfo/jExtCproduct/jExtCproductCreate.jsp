@@ -4,7 +4,6 @@
 <head>
     <title></title>
     <script type="text/javascript">
-    	//设置冗余的生产厂家名称
     	function setFactoryName(val){
     		var ele = document.getElementById("factoryName");
     		ele.value = val;

@@ -42,4 +42,17 @@
         select "COUNT"(CONTRACT_PRODUCT_ID) as conuntConPro from CONTRACT_PRODUCT_C,CONTRACT_C where CONTRACT_C.CONTRACT_ID = CONTRACT_PRODUCT_C.CONTRACT_ID and CONTRACT_C.CONTRACT_ID = #{contract_Id}
     </select>
 
+    <select id="poiCh" resultMap="ExportProFactory">
+        select
+  c.custom_name,c.contract_no,to_char(c.delivery_period,'yyyy-MM-dd hh:mm:ss') as delivery_period,to_char(c.ship_time,'yyyy-MM-dd hh:mm:ss') as ship_time,
+  cp.product_no,concat(cp.cnumber,cp.packing_unit) as cnumber,cp.factory_id
+from
+(select contract_id,custom_name,contract_no,delivery_period,ship_time from contract_c) c
+left join
+(select contract_id,product_no,cnumber,packing_unit,factory_id from contract_product_c) cp
+on c.contract_id=cp.contract_id
+
+where to_char(c.ship_time,'yyyy-MM') = #{inputDate}
+    </select>
+
 </mapper>

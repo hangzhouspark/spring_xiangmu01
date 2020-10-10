@@ -24,6 +24,7 @@ c.CONTRACT_ID,c.OFFEROR,c.CONTRACT_NO,c.SIGNING_DATE,c.INPUT_BY,c.CHECK_BY,c.INS
 from contract_c c
     </select>
 
+
     <insert id="insertContract" parameterType="com.hopu.entity.ContractC">
         INSERT INTO CONTRACT_C(contract_Id,offeror,contract_No,signing_Date,input_By,check_By,inspector,total_Amount,request,custom_Name,ship_Time,import_Num,delivery_Period,remark,print_Style,state)values(#{contract_Id},#{offeror},#{contract_No},#{signing_Date},#{input_By},#{check_By},#{inspector},#{total_Amount},#{request},#{custom_Name},#{ship_Time},#{import_Num},#{delivery_Period},#{remark},#{print_Style},#{state})
     </insert>

@@ -43,4 +43,5 @@ public class ContractCServiceImpl implements ContractCService {
     public int updatestate(ContractC entity) {
         return contractCMapper.updatestate(entity);
     }
+
 }

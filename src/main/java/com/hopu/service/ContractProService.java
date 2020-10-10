@@ -20,7 +20,7 @@ public interface ContractProService {
 
     public ContractPro selectCount(String contract_Id);
 
-
+    public List<ContractPro> poiCh(String inputDate);
 
 
 }

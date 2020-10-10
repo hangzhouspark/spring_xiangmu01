@@ -18,4 +18,5 @@ public interface ContractCService {
 
     public int updatestate(ContractC entity);
 
+
 }

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.jnlp.ExtendedService;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.util.List;
@@ -62,7 +61,7 @@ public class ContractProController {
         entity.setContract_Id(contract_ids);
         int i = contractProService.insertConPro(entity);
         if (i > 0) {
-            return "redirect:findConProAll.action?contract_Id=" + contract_ids + "";
+            return "redirect:findConProAll.action?contractId=" + contract_ids + "";
         }
         return "添加失败";
     }
@@ -101,6 +100,7 @@ public class ContractProController {
 
     /**
      * 根据ID查询（修改回显）
+     *
      * @param contract_Product_Id
      * @param request
      * @return
@@ -129,5 +129,6 @@ public class ContractProController {
         }
         return "修改失败";
     }
+
 
 }

@@ -213,4 +213,51 @@ public class ContractCController {
         return "redirect:selectContract.action";
     }
 
+    /***
+     * 去打印界面
+     * @return
+     */
+    @RequestMapping("/goPoi.action")
+    public String goPoi() {
+
+        return "basicinfo/PoiCH/PoiCh";
+    }
+
+    /***
+     * 打印出货表功能
+     * @param
+     * @return
+     */
+    @RequestMapping("/poiCh.action")
+    public void poiCh(String inputDate, HttpServletResponse response) throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("出货表");
+        List<ContractPro> contractPros = contractProService.poiCh(inputDate);
+        String fileName = inputDate + ".xls";
+        int rowNum = 1;
+        String[] headers = {"客户", "订单号", "货号", "数量", "工厂", "工厂交期", "船期"};
+        HSSFRow row = sheet.createRow(0);
+        for (int i = 0; i < headers.length; i++) {
+            HSSFCell cell = row.createCell(i);
+            HSSFRichTextString text = new HSSFRichTextString(headers[i]);
+            cell.setCellValue(text);
+        }
+        for (ContractPro contractPro : contractPros) {
+            HSSFRow row1 = sheet.createRow(rowNum);
+            row1.createCell(0).setCellValue(contractPro.getContractC().getCustom_Name());
+            row1.createCell(1).setCellValue(contractPro.getContractC().getContract_No());
+            row1.createCell(2).setCellValue(contractPro.getProduct_No());
+            row1.createCell(3).setCellValue(contractPro.getCnumber().doubleValue());
+            row1.createCell(4).setCellValue(contractPro.getFactory_c().getFactory_id());
+            row1.createCell(5).setCellValue(contractPro.getContractC().getDelivery_Period());
+            row1.createCell(6).setCellValue(contractPro.getContractC().getShip_Time());
+            rowNum++;
+        }
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+        response.flushBuffer();
+        workbook.write(response.getOutputStream());
+
+    }
+
 }

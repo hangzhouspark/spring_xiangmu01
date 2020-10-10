@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hopu.mapper.ExportCMapper">
+
+<select id="selectExpC" resultType="com.hopu.entity.ExportC">
+    select
+      (select count(*) from EXT_CPRODUCT_C
+      where EXPORT_ID=e.EXPORT_ID) as epnum,
+      (select count(*) from ext_eproduct_c
+              where export_product_id in (select export_product_id from export_product_c where export_id=e.export_id)
+          ) as extnum,
+
+    e.EXPORT_ID,e.INPUT_DATE,e.CONTRACT_IDS,e.LCNO,e.CONSIGNEE,e.MARKS,e.REMARK,e.SHIPMENT_PORT,e.DESTINATION_PORT,e.TRANSPORT_MODE,e.PRICE_CONDITION,e.GROSS_WEIGHT,e.NET_WEIGHT,e.STATE
+    from EXPORT_C e
+</select>
+
+    <select id="selectContractByExpC" resultType="com.hopu.entity.ContractC">
+        select
+  (select count(*) from contract_product_c
+  where contract_id=c.contract_id)  as cpnum,
+  (select count(*) from ext_cproduct_c
+          where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id)
+      ) as extnum,
+  (
+      nvl((select sum(cnumber*price) as cptotal from contract_product_c
+      where contract_id =c.contract_id),0)
+      +
+      nvl(
+      (select sum(cnumber*price) as exttotal from ext_cproduct_c
+       where contract_product_id in (select contract_product_id from contract_product_c where contract_id=c.contract_id))
+       ,0)
+  ) as total_amount,
+c.CONTRACT_ID,c.OFFEROR,c.CONTRACT_NO,c.SIGNING_DATE,c.INPUT_BY,c.CHECK_BY,c.INSPECTOR,c.IMPORT_NUM,c.REQUEST,c.CUSTOM_NAME,c.DELIVERY_PERIOD,c.SHIP_TIME,c.REMARK,c.PRINT_STYLE,c.OLD_STATE,c.STATE,c.OUT_STATE
+
+from contract_c c WHERE STATE = 0
+
+    </select>
+
+</mapper>
