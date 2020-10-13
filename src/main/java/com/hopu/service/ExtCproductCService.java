@@ -17,4 +17,6 @@ public interface ExtCproductCService {
     public int delExt(ExtCproductC entity);
 
     public int delExtByCon(String contract_Product_Id);
+
+    public List<ExtCproductC> selectthree(String contract_product_c);
 }

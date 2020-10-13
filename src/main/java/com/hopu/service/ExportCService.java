@@ -11,5 +11,9 @@ public interface ExportCService {
 
     public List<ContractC> selectContractByExpC();
 
+    public int insertexport(ExportC entity);
+
+    public ExportC selectExpCByid(String export_id);
+
 
 }

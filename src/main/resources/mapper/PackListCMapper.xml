@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hopu.mapper.PackListCMapper">
+
+    <select id="selectPacklist" resultType="com.hopu.entity.PackListC">
+		select * from packing_list_c
+	</select>
+
+    <select id="selectPackByid" resultType="com.hopu.entity.PackListC">
+        select * from packing_list_c where PACKING_LIST_ID = #{packing_list_id}
+    </select>
+
+    <insert id="insertPack" parameterType="com.hopu.entity.PackListC">
+		insert into packing_list_c(PACKING_LIST_ID,EXPORT_ID,SELLER,BUYER,INVOICE_NO,INVOICE_DATE,MARKS,DESCRIPTIONS,STATE) values (#{packing_list_id},#{export_id},#{seller},#{buyer},#{invoice_no},#{invoice_date},#{marks},#{descriptions},#{state})
+	</insert>
+
+    <update id="updatePack" parameterType="com.hopu.entity.PackListC">
+        update packing_list_c set SELLER = #{seller},BUYER = #{buyer},INVOICE_NO = #{invoice_no},INVOICE_DATE = #{invoice_date},MARKS = #{marks},DESCRIPTIONS = #{descriptions} where PACKING_LIST_ID = #{packing_list_id}
+    </update>
+
+
+</mapper>

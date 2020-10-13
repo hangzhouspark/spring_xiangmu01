@@ -55,4 +55,8 @@ on c.contract_id=cp.contract_id
 where to_char(c.ship_time,'yyyy-MM') = #{inputDate}
     </select>
 
+    <select id="selecttwo" resultMap="ExportProFactory">
+    select * from CONTRACT_PRODUCT_C,Factory_c where  CONTRACT_PRODUCT_C.FACTORY_ID=Factory_c.FACTORY_ID and CONTRACT_ID=#{CONTRACT_ID}
+    </select>
+
 </mapper>

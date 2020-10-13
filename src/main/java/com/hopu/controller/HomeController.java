@@ -91,4 +91,21 @@ public class HomeController {
     public String jFactoryCreate() {
         return "basicinfo/factory/jFactoryCreate";
     }
+
+    /**
+     * 统计分析
+     *
+     * @return
+     */
+
+    @RequestMapping("/statMain.action")
+    public String statMain() {
+        return "basicinfo/stat/main";
+    }
+
+    @RequestMapping("/statLeft.action")
+    public String statLeft() {
+        return "basicinfo/stat/left";
+    }
+
 }

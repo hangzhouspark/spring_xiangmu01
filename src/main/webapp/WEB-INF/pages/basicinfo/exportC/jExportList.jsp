@@ -15,10 +15,11 @@
   <div id="navMenubar">
 <ul>
 <li id="view"><a href="#" onclick="formSubmit('toview.action','_self');this.blur();">查看</a></li>
-<li id="update"><a href="#" onclick="formSubmit('toupdate.action','_self');this.blur();">修改</a></li>
+<li id="update"><a href="#" onclick="formSubmit('asd.action','_self');this.blur();">修改</a></li>
 <li id="delete"><a href="#" onclick="formSubmit('delete.action','_self');this.blur();">删除</a></li>
 <li id="new"><a href="#" onclick="formSubmit('submit.action','_self');this.blur();">上报</a></li>
 <li id="new"><a href="#" onclick="formSubmit('cancel.action','_self');this.blur();">取消</a></li>
+<li id="new"><a href="#" onclick="formSubmit('goPacklistinsert.action','_self');this.blur();">新增</a></li>
 </ul>
   </div>
 </div>
@@ -60,7 +61,7 @@
 	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
 		<td><input type="checkbox" name="export_id" value="${o.export_id}"/></td>
 		<td>${status.index+1}</td>
-		<td><a href="toview.action?id=${o.export_id}">${o.export_id}</a></td>
+		<td><a href="toview.action?id=${o.export_id}">${o.customer_Contract}</a></td>
 		<td>${o.lcno}</td>
 		<td align="center">${o.epnum}/${o.extnum}</td>
 		<td>${o.consignee}</td>
@@ -75,7 +76,6 @@
 		</td>
 	</tr>
 	</c:forEach>
-	
 	</tbody>
 </table>
 </div>

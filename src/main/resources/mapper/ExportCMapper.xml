@@ -5,13 +5,13 @@
 
 <select id="selectExpC" resultType="com.hopu.entity.ExportC">
     select
-      (select count(*) from EXT_CPRODUCT_C
+      (select count(*) from export_product_c
       where EXPORT_ID=e.EXPORT_ID) as epnum,
       (select count(*) from ext_eproduct_c
               where export_product_id in (select export_product_id from export_product_c where export_id=e.export_id)
           ) as extnum,
 
-    e.EXPORT_ID,e.INPUT_DATE,e.CONTRACT_IDS,e.LCNO,e.CONSIGNEE,e.MARKS,e.REMARK,e.SHIPMENT_PORT,e.DESTINATION_PORT,e.TRANSPORT_MODE,e.PRICE_CONDITION,e.GROSS_WEIGHT,e.NET_WEIGHT,e.STATE
+    e.EXPORT_ID,e.INPUT_DATE,e.CONTRACT_IDS,e.LCNO,e.CONSIGNEE,e.MARKS,e.REMARK,e.SHIPMENT_PORT,e.DESTINATION_PORT,e.TRANSPORT_MODE,e.PRICE_CONDITION,e.GROSS_WEIGHT,e.NET_WEIGHT,e.STATE,e.CUSTOMER_CONTRACT
     from EXPORT_C e
 </select>
 
@@ -36,5 +36,13 @@ c.CONTRACT_ID,c.OFFEROR,c.CONTRACT_NO,c.SIGNING_DATE,c.INPUT_BY,c.CHECK_BY,c.INS
 from contract_c c WHERE STATE = 0
 
     </select>
+
+    <select id="selectExpCByid" resultType="com.hopu.entity.ExportC">
+        select * from EXPORT_C where EXPORT_ID = #{export_id}
+    </select>
+
+    <insert id="insertexport" parameterType="com.hopu.entity.ExportC">
+        insert into EXPORT_C(EXPORT_ID,CONTRACT_IDS,CUSTOMER_CONTRACT,STATE)values (#{export_id},#{contract_Ids},#{customer_Contract},#{state})
+    </insert>
 
 </mapper>

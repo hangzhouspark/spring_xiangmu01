@@ -16,7 +16,7 @@
 <ul>
 <li id="view"><a href="#" onclick="formSubmit('${ctx}/cargo/contract/toview.action','_self');this.blur();">查看</a></li>
 <li id="print"><a href="#" onclick="formSubmit('${ctx}/cargo/contract/print.action','_self');this.blur();">打印</a></li>
-<li id="new"><a href="#" onclick="formSubmit('${ctx}/cargo/export/insert.action','_self');this.blur();">报运</a></li>
+<li id="new"><a href="#" onclick="formSubmit('insertexport.action','_self');this.blur();">报运</a></li>
 </ul>
   </div>
 </div>
@@ -56,7 +56,7 @@
 	
 	<c:forEach items="${contractList}" var="o" varStatus="status">
 	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
-		<td><input type="checkbox" name="contract_Id" value="${o.contract_Id}"/></td>
+		<td><input type="checkbox" name="userList" value="${o.contract_Id}"/></td>
 		<td>${status.index+1}</td>
 		<td>${o.custom_Name}</td>
 		<td>${o.contract_No}</td>
@@ -70,14 +70,10 @@
 		<td>${o.total_Amount}</td>
 	</tr>
 	</c:forEach>
-	
 	</tbody>
 </table>
 </div>
- 
 </div>
- 
- 
 </form>
 </body>
 </html>

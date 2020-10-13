@@ -54,4 +54,9 @@ public class ContractProServiceImpl implements ContractProService {
     public List<ContractPro> poiCh(String inputDate) {
         return contractProMapper.poiCh(inputDate);
     }
+
+    @Override
+    public List<ContractPro> selecttwo(String contract_Id) {
+        return contractProMapper.selecttwo(contract_Id);
+    }
 }

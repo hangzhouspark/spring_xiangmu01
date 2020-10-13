@@ -8,6 +8,9 @@
         <collection autoMapping="true" property="contract_product_c" ofType="com.hopu.entity.ContractPro">
             <id column="contract_Product_Id" property="contract_Product_Id"/>
         </collection>
+        <collection autoMapping="true" property="factory_c" ofType="com.hopu.entity.Factory_c">
+            <id column="factory_id" property="factory_id"/>
+        </collection>
     </resultMap>
 
     <select id="selectExt" resultMap="ExtCproductC_ContractPro">
@@ -33,6 +36,10 @@
     <delete id="delExtByCon" parameterType="com.hopu.entity.ExtCproductC">
         delete from EXT_CPRODUCT_C where  CONTRACT_PRODUCT_ID = #{contract_Product_Id}
     </delete>
+
+    <select id="selectthree" resultMap="ExtCproductC_ContractPro">
+    select * from Ext_cproduct_C,Factory_c where Ext_cproduct_C.FACTORY_ID=Factory_c.FACTORY_ID and CONTRACT_PRODUCT_ID=#{CONTRACT_PRODUCT_ID}
+    </select>
 
 
 </mapper>

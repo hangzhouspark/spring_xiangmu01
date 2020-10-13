@@ -44,4 +44,9 @@ public class ExtCproductCServiceImpl implements ExtCproductCService {
     public int delExtByCon(String contract_Product_Id) {
         return extCproductCMapper.delExtByCon(contract_Product_Id);
     }
+
+    @Override
+    public List<ExtCproductC> selectthree(String contract_product_c) {
+        return extCproductCMapper.selectthree(contract_product_c);
+    }
 }

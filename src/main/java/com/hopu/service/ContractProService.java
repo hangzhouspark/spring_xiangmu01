@@ -22,5 +22,7 @@ public interface ContractProService {
 
     public List<ContractPro> poiCh(String inputDate);
 
+    public List<ContractPro> selecttwo(String contract_Id);
+
 
 }

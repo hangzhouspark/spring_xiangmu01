@@ -1,5 +1,9 @@
 server:
-  port: 8001
+  port: 8002
+#  ssl:
+#    key-store: src/main/resources/4124529_www.yanxixi.xyz.pfx
+#    key-store-password: oK46Xj92
+#    key-store-type: PKCS12
 spring:
   datasource:
     url: jdbc:oracle:thin:@127.0.0.1:1521:orcl

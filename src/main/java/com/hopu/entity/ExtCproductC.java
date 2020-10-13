@@ -17,6 +17,8 @@ public class ExtCproductC {
 
     private String contract_Product_Id;
 
+    private Factory_c factory_c;
+
     private String factory_Id;
 
     private String factory_Name;

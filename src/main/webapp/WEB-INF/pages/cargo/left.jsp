@@ -35,6 +35,9 @@
                 <ul>
                     <li><a href="/findExpCAll.action" onclick="linkHighlighted(this)" target="main" id="aa_1">出口报运</a></li>
                 </ul>
+                <ul>
+                    <li><a href="/selectPacklist.action" onclick="linkHighlighted(this)" target="main" id="aa_1">装箱</a></li>
+                </ul>
             </div>
         </div>
     </div>

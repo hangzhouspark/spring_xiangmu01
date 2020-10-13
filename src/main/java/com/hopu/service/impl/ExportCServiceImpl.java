@@ -24,4 +24,16 @@ public class ExportCServiceImpl implements ExportCService {
     public List<ContractC> selectContractByExpC() {
         return exportCMapper.selectContractByExpC();
     }
+
+    @Override
+    public int insertexport(ExportC entity) {
+        return exportCMapper.insertexport(entity);
+    }
+
+    @Override
+    public ExportC selectExpCByid(String export_id) {
+        return exportCMapper.selectExpCByid(export_id);
+    }
+
+
 }

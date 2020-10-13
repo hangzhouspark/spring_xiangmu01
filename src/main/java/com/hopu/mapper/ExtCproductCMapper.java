@@ -18,5 +18,7 @@ public interface ExtCproductCMapper {
 
     public int delExtByCon(String contract_Product_Id);
 
+    public List<ExtCproductC> selectthree(String contract_product_c);
+
 
 }

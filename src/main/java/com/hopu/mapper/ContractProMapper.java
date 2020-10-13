@@ -21,4 +21,6 @@ public interface ContractProMapper {
     public ContractPro selectCount(String contract_Id);
 
     public List<ContractPro> poiCh(String inputDate);
+
+    public List<ContractPro> selecttwo(String contract_Id);
 }
